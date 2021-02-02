@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     nickname { FFaker::Lorem.word }
-    level { FFaker::Radom.rand(1..99) }
-    kind { %i[knight wizard].sample }
+    level { Random.rand(1..99) }
+    kind { %w[knight wizard].sample }
   end
 end
