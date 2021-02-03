@@ -1,5 +1,14 @@
 class EnemiesController < ApplicationController
-  before_action :set_enemy
+  before_action :set_enemy, expect: [:create, :index]
+
+  def index
+    @enemies = Enemy.all
+    render json: @enemies, status: :ok
+  end
+
+  def create
+    @enemy = Enemy.create(enemy_params)
+  end
 
   def update
     if @enemy.update(enemy_params)
@@ -17,6 +26,7 @@ class EnemiesController < ApplicationController
   private
   
   def enemy_params
+    #params.require(:enemy).permit(:name, :power_base, :power_step, :level, :kind)
     params.permit( :name, :power_base, :power_step, :level, :kind )
   end
   

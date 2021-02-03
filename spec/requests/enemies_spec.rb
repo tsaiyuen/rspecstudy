@@ -19,7 +19,8 @@ RSpec.describe "Enemies", type: :request do
         json_response = JSON.parse(response.body)
         expect(enemy.reload).to have_attributes(json_response.except('created_at', 'updated_at'))
        
-       # expect(enemy.reload).to have_attributes(json.except('created_at', 'updated_at')) 
+        #expect(enemy.reload).to have_attributes(json.except('created_at', 'updated_at')) 
+       
       end
     end
 
